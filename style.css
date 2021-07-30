@@ -29,6 +29,22 @@
     --bg  : var(--nord0);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: var(--nord5);
+        --link: var(--nord8);
+        --bg  : var(--nord0);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--nord0);
+        --link: var(--nord10);
+        --bg  : var(--nord5);
+    }
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -59,8 +75,4 @@ a {
 .themeToggle {
     position: absolute;
     padding: 15px;
-}
-
-.themeToggle::after {
-    content: 'dark_mode';
 }

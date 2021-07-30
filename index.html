@@ -8,16 +8,23 @@
     <link rel="stylesheet" href="style.css">
     <meta name="theme-color" content="#2e3440">
     <title>CDN | cdn.byran.tech</title>
+
+    <meta property="og:title" content="cdn.byran.tech | A simple CDN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cdn.byran.tech" />
+    <meta property="og:description"
+        content="Simple CDN with a beautiful user interface (for no reason), run by www.byran.tech." />
 </head>
 
-<body>
-    <div class="themeToggle material-icons" onclick="toggleTheme()"></div>
+<body onload="onLoadFunc()">
+    <div class="themeToggle material-icons" id="themeToggle" onclick="toggleTheme()"></div>
     <div class="wrapper">
         <h1>CDN</h1>
         <h2>cdn.byran.tech</h2>
         <br>
         <h2>About</h2>
-        <p>cdn.byran.tech is a content delivery network utilizing GitHub Pages as a means to distribute/host content.
+        <p>cdn.byran.tech is a content delivery network utilizing
+            GitHub Pages as a means to distribute/host content.
         </p>
         <br>
         <h1> List of files on CDN:</h1>
@@ -29,25 +36,48 @@
         <h2><a href="./cdn/">Item</a></h2>
     </div>
 
+    <!-- Script to alter cdn website theme based on os preference and a dark/light toggle with icons -->
     <script>
-        x = 0;
+        // the script assumes that the user has dark mode, and adapts to light mode based on
+        // os if they want to look at the sun
+        var isDark = new Boolean(true);
 
-        function isEven(value) {
-            if (value % 2 == 0)
-                return true;
-            else
-                return false;
+        // checks whether dark mode is enabled
+        function isDarkModeEnabled() {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            if (prefersDark == true) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function onLoadFunc() {
+            document.getElementById('themeToggle').innerHTML = "dark_mode"
+            // sees whether os prefers dark or light mode
+            if (isDarkModeEnabled()) {
+                isDark = true;
+            } else {
+                isDark = false;
+                document.getElementById('themeToggle').innerHTML = "light_mode"
+            }
         }
 
         function toggleTheme() {
-            console.log(++x)
-            if (isEven(x)) {
-            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#2e3440");
+            isDark = !isDark // inverts the boolean because its the opposite now the
+            // user selects the opposite
+            console.log(isDark)
+            if (isDark) {
+                // it will change the icon and the variables to match user preferred theme
+                document.getElementById('themeToggle').innerHTML = "dark_mode"
+                document.querySelector('meta[name="theme-color"]').setAttribute("content", "#2e3440");
                 document.querySelector(':root').style.setProperty('--bg', 'var(--dark-bg)');
                 document.querySelector(':root').style.setProperty('--text', 'var(--dark-text)');
                 document.querySelector(':root').style.setProperty('--link', 'var(--dark-link)');
             } else {
-            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#e5e9f0");
+                // same here, but with light mode
+                document.getElementById('themeToggle').innerHTML = "light_mode"
+                document.querySelector('meta[name="theme-color"]').setAttribute("content", "#e5e9f0");
                 document.querySelector(':root').style.setProperty('--bg', 'var(--light-bg)');
                 document.querySelector(':root').style.setProperty('--text', 'var(--light-text)');
                 document.querySelector(':root').style.setProperty('--link', 'var(--light-link)');
