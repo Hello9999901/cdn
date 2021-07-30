@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#2e3440">
     <title>CDN | cdn.byran.tech</title>
 </head>
 
 <body>
+    <div class="themeToggle material-icons" onclick="toggleTheme()"></div>
     <div class="wrapper">
         <h1>CDN</h1>
         <h2>cdn.byran.tech</h2>
         <br>
         <h2>About</h2>
-        <p>cdn.byran.tech is a content delivery network utilizing GitHub Pages as a means to distribute/host content.</p>
+        <p>cdn.byran.tech is a content delivery network utilizing GitHub Pages as a means to distribute/host content.
+        </p>
         <br>
         <h1> List of files on CDN:</h1>
         <h2><a href="">Item</a></h2>
@@ -25,6 +28,32 @@
         <h2><a href="">Item</a></h2>
         <h2><a href="">Item</a></h2>
     </div>
+
+    <script>
+        x = 0;
+
+        function isEven(value) {
+            if (value % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+
+        function toggleTheme() {
+            console.log(++x)
+            if (isEven(x)) {
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#2e3440");
+                document.querySelector(':root').style.setProperty('--bg', 'var(--dark-bg)');
+                document.querySelector(':root').style.setProperty('--text', 'var(--dark-text)');
+                document.querySelector(':root').style.setProperty('--link', 'var(--dark-link)');
+            } else {
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#e5e9f0");
+                document.querySelector(':root').style.setProperty('--bg', 'var(--light-bg)');
+                document.querySelector(':root').style.setProperty('--text', 'var(--light-text)');
+                document.querySelector(':root').style.setProperty('--link', 'var(--light-link)');
+            }
+        }
+    </script>
 </body>
 
 </html>
