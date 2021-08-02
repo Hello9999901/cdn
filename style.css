@@ -1,14 +1,14 @@
 :root {
-    --nord0 : #2e3440;
-    --nord1 : #3b4252;
-    --nord2 : #434c5e;
-    --nord3 : #4c566a;
-    --nord4 : #dee3ed;
-    --nord5 : #e5e9f0;
-    --nord6 : #eceff4;
-    --nord7 : #8fbcbb;
-    --nord8 : #88c0d0;
-    --nord9 : #81a1c1;
+    --nord0: #2e3440;
+    --nord1: #3b4252;
+    --nord2: #434c5e;
+    --nord3: #4c566a;
+    --nord4: #dee3ed;
+    --nord5: #e5e9f0;
+    --nord6: #eceff4;
+    --nord7: #8fbcbb;
+    --nord8: #88c0d0;
+    --nord9: #81a1c1;
     --nord10: #5e81ac;
     --nord11: #bf616a;
     --nord12: #d08770;
@@ -18,22 +18,22 @@
 
     --dark-text: var(--nord5);
     --dark-link: var(--nord8);
-    --dark-bg  : var(--nord0);
+    --dark-bg: var(--nord0);
 
     --light-text: var(--nord0);
     --light-link: var(--nord10);
-    --light-bg  : var(--nord5);
+    --light-bg: var(--nord5);
 
     --text: var(--nord5);
     --link: var(--nord8);
-    --bg  : var(--nord0);
+    --bg: var(--nord0);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --text: var(--nord5);
         --link: var(--nord8);
-        --bg  : var(--nord0);
+        --bg: var(--nord0);
     }
 }
 
@@ -41,7 +41,7 @@
     :root {
         --text: var(--nord0);
         --link: var(--nord10);
-        --bg  : var(--nord5);
+        --bg: var(--nord5);
     }
 }
 
@@ -61,9 +61,10 @@ a {
 }
 
 .themeToggle {
+    font-size: 40px;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     padding: 10px;
 }
 
@@ -75,4 +76,37 @@ a {
 .themeToggle {
     position: absolute;
     padding: 15px;
+}
+
+/* Github Banner */
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+
+    20%,
+    60% {
+        transform: rotate(-25deg)
+    }
+
+    40%,
+    80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
 }
